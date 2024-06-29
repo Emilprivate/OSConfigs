@@ -15,6 +15,10 @@
 
 ### IDA-Pro
 1) Enable experimental-features inside /etc/nix/nix.conf: ```experimental-features = nix-command flakes```
+also adjust build-users-group: ```build-users-group = nixbld```
 2) Sway configuration: Adjust the username for the ida privilege escalation.
-3) Ensure that nix is installed
-4) Build the project with make inside the ida folder.
+3) Ensure to either:
+- a) ```sudo usermod -aG nixbld your_username```
+- b) ```sudo chmod 1777 /nix/store```
+4) Ensure that nix is installed
+6) Build the project with make inside the ida folder.

@@ -74,9 +74,6 @@ client.focused_inactive "#999999" "#000000"      "#ffffff"   "#999999"        "#
 
 client.unfocused        "#666666" "#000000"      "#ffffff"   "#666666"        "#666666"
 
-# opens a new terminal, starts a tmux session and tries to connect to my home ssh server
-bindsym $mod+c+s exec $term -e sh -c 'tmux new-session -d && tmux send-keys "ssh -p 33556 caos@emils-caos.ddns.net" Enter && tmux attach'
-
 # screenshot command
 bindsym $mod+p+s exec grim -g "$(slurp -d)" - | wl-copy
 
@@ -84,9 +81,10 @@ bindsym $mod+p+s exec grim -g "$(slurp -d)" - | wl-copy
 bindsym $mod+l+s exec swaylock
 
 # configure permissions and nix for ida
-exec sudo chown -R esd /nix
+exec sudo chown -R emilpriv /nix
 exec sudo systemctl enable nix-daemon
-
+exec sudo usermod -aG nixbld emilpriv
+exec sudo chmod 1777 /nix/store
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
