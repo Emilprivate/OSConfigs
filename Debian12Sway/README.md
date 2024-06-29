@@ -22,3 +22,16 @@ also adjust build-users-group: ```build-users-group = nixbld```
 - b) ```sudo chmod 1777 /nix/store```
 4) Ensure that nix is installed
 6) Build the project with make inside the ida folder.
+7) Make a desktop shortcut for the launcher:
+- Desktop Entry:
+```
+[Desktop Entry]
+Type=Application
+Name=IDA Pro
+Exec=/path/to/ida/pro64
+Icon=/path/to/ida/icon.png
+Comment=IDA Pro Disassembler
+Categories=Development;
+Terminal=false
+```
+Move this to ```~/.local/share/applications/``` or ```/usr/share/applications``` for system-wide availability.
