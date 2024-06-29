@@ -1,7 +1,7 @@
 # Notes:
 
-**VSCODE**
-### Remember to add the following in user settings json file in order to prevent vscode from using the default titlebar style:
+### VSCODE
+- Remember to add the following in user settings json file in order to prevent vscode from using the default titlebar style:
 ```"window.titleBarStyle": "custom",```
 
 ### In order to install Ly display manager:
