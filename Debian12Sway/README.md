@@ -35,3 +35,4 @@ Categories=Development;
 Terminal=false
 ```
 Move this to ```~/.local/share/applications/``` or ```/usr/share/applications``` for system-wide availability.
+8) Also ensure that the user has full permissions with "NOPASSWD: ALL" in visudo.
