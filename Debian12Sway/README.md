@@ -28,7 +28,7 @@ also adjust build-users-group: ```build-users-group = nixbld```
 [Desktop Entry]
 Type=Application
 Name=IDA Pro
-Exec=/path/to/ida/pro64
+Exec=nix run '/home/emilpriv/Applications/idapro64/.#idapro64'
 Icon=/path/to/ida/icon.png
 Comment=IDA Pro Disassembler
 Categories=Development;
