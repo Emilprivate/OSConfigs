@@ -12,3 +12,9 @@
 5) If ```sudo systemctl enable ly.service``` doesn't work then ensure to backup the existing one by renaming it such as: ```sudo mv /etc/systemd/system/display-manager.service /etc/systemd/system/display-manager.service.bak``` and then try again.
 6) Test with ```systemctl status ly.service```
 7) Reboot.
+
+### IDA-Pro
+1) Enable experimental-features inside /etc/nix/nix.conf: ```experimental-features = nix-command flakes```
+2) Sway configuration: Adjust the username for the ida privilege escalation.
+3) Ensure that nix is installed
+4) Build the project with make inside the ida folder.
