@@ -1,0 +1,20 @@
+window {
+	font-size: 32px;
+	font-family: "Roboto Mono Medium";
+	background: black;
+	color: white;
+}
+
+#entry:selected {
+	background: grey;
+	color: white;
+}
+
+#text:selected {
+	color: white;
+}
+
+#input {
+	background: black;
+	color: white;
+}
