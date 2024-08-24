@@ -1,0 +1,5 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =3
+let g:netrw_dirhist_3='/home/esd/Gitclones/Esd.SSR/Ctfs/picoCTF 2022/Reverse Engineering/GDB Test Drive/workfolder'
+let g:netrw_dirhist_2='/home/esd/.config/sway/inputs'
+let g:netrw_dirhist_1='/home/esd/.config/sway/config.d'

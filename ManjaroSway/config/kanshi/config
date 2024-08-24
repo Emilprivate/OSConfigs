@@ -1,0 +1,23 @@
+profile {
+	output eDP-1 enable
+}
+
+profile aalborg-homesetup {
+	output eDP-1 disable
+
+	output "Acer Technologies XF270HU T78EE0048521"{ 
+		mode 2560x1440@143.856Hz
+		position 1080,0
+	}
+
+	output "Acer Technologies Acer XB240H T1YEE0114202"{
+		mode 1920x1080@144.001Hz
+		position 3640,0
+	}
+
+	output "AOC 24B2W1 0x00004038"{
+		mode 1920x1080@60Hz
+		position 0,0
+		transform 90
+	}
+}
