@@ -1,0 +1,17 @@
+{
+  "suggest.enablePreview": true,
+  "diagnostic.virtualText": true,
+  "coc.preferences.hoverTarget": "float",
+  "coc.preferences.useQuickfixForLocations": false,
+  "coc.preferences.formatOnSaveFiletypes": [
+    "javascript",
+    "typescript",
+    "json",
+    "html",
+    "css"
+  ],
+  "codeLens.enable": true,
+  "codeAction.enable": true,
+  "codeAction.lightbulb.enable": true
+}
+
