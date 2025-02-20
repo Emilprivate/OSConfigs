@@ -31,6 +31,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'itchyny/lightline.vim'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install --frozen-lockfile --production' }
+Plug 'github/copilot.vim'
 
 call plug#end()
 
@@ -106,6 +107,27 @@ inoremap <C-S-Right> <Esc>$<Esc>i
 " cursor
 noremap <C-S-Left> 0
 
+" Show available code actions
+nmap <leader>a <Plug>(coc-codeaction)
+
+" Show code actions for the current line
+nmap <leader>ca <Plug>(coc-codeaction-line)
+
+" Apply auto action:
+nmap <leader>qf <Plug>(coc-fix-current)
+
+" Accept Copilot Suggestion (like pressing Tab in VSCode)
+imap <silent><script><expr> <C-l> copilot#Accept("\<CR>")
+
+" Show the next suggestion (like pressing Alt + ] in VSCode)
+imap <silent><script><expr> <C-]> copilot#Next()
+
+" Show the previous suggestion (like pressing Alt + [ in VSCode)
+imap <silent><script><expr> <C-[> copilot#Previous()
+
+" Dismiss the current suggestion
+imap <silent><script><expr> <C-\> copilot#Dismiss()
+
 
 " Don't load me if there's no ctags file
 if !executable('ctags')
@@ -119,3 +141,43 @@ highlight Pmenu ctermbg=234 ctermfg=250 guibg=#2d2d2d guifg=#d3d3d3
 highlight PmenuSel ctermbg=237 ctermfg=White guibg=#3e3e3e guifg=#ffffff
 highlight PmenuSbar ctermbg=240 guibg=#4e4e4e
 highlight PmenuThumb ctermbg=250 guibg=#d3d3d3
+" For newer LSPs (Neovim 0.6+)
+highlight DiagnosticError ctermfg=Red ctermbg=NONE guifg=#ff6b6b guibg=NONE
+highlight DiagnosticWarn ctermfg=Yellow ctermbg=NONE guifg=#ffdd57 guibg=NONE
+
+" For older LSPs and backward compatibility
+highlight LspDiagnosticsDefaultError ctermfg=Red ctermbg=NONE guifg=#ff6b6b guibg=NONE
+highlight LspDiagnosticsDefaultWarning ctermfg=Yellow ctermbg=NONE guifg=#ffdd57 guibg=NONE
+
+" Underline errors and warnings (optional)
+highlight DiagnosticUnderlineError gui=underline guisp=#ff6b6b
+highlight DiagnosticUnderlineWarn gui=underline guisp=#ffdd57
+
+" General Vim error and warning colors (for good measure)
+highlight Error ctermfg=Red ctermbg=NONE guifg=#ff6b6b guibg=NONE
+highlight WarningMsg ctermfg=Yellow ctermbg=NONE guifg=#ffdd57 guibg=NONE
+
+" For coc.nvim error and warning highlights
+highlight CocErrorSign ctermfg=Red guifg=#ff6b6b
+highlight CocWarningSign ctermfg=Yellow guifg=#ffdd57
+highlight CocErrorHighlight cterm=underline gui=underline guisp=#ff6b6b
+highlight CocWarningHighlight cterm=underline gui=underline guisp=#ffdd57
+
+" For ALE error and warning highlights
+highlight ALEErrorSign ctermfg=Red guifg=#ff6b6b
+highlight ALEWarningSign ctermfg=Yellow guifg=#ffdd57
+highlight ALEError ctermbg=NONE ctermfg=Red guibg=NONE guifg=#ff6b6b
+highlight ALEWarning ctermbg=NONE ctermfg=Yellow guibg=NONE guifg=#ffdd57
+
+" For YouCompleteMe error and warning highlights
+highlight YcmErrorSign ctermfg=Red guifg=#ff6b6b
+highlight YcmWarningSign ctermfg=Yellow guifg=#ffdd57
+highlight YcmErrorText ctermbg=NONE ctermfg=Red guibg=NONE guifg=#ff6b6b
+highlight YcmWarningText ctermbg=NONE ctermfg=Yellow guibg=NONE guifg=#ffdd57
+
+" For nvim-treesitter error and warning highlights
+highlight TSWarning ctermfg=Yellow guifg=#ffdd57
+highlight TSError ctermfg=Red guifg=#ff6b6b
+
+colorscheme industry
+
