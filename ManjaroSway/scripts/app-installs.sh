@@ -45,4 +45,7 @@ sudo pacman -S jdk17-openjdk
 
 sudo pacman -S base-devel cmake python3 go npm --noconfirm
 
+# Install dpkg
+sudo pacman -S dpkg --noconfirm
 echo "Application installation complete!"
+
