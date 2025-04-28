@@ -1,0 +1,29 @@
+[time]
+command=date '+ %Y-%m-%d %H:%M:%S'
+interval=1
+label=
+
+[disk]
+command=df -h / | awk 'NR==2{print " "$4}'
+interval=300
+label=
+
+[network]
+command=sh -c 'if iwgetid -r >/dev/null; then echo " $(iwgetid -r)"; else echo "睊 down"; fi'
+interval=5
+label=
+
+[battery]
+command=sh -c 'BAT=0; S=/sys/class/power_supply/BAT$BAT; P=$(cat $S/capacity); ST=$(cat $S/status); ICON=""; [ "$ST" = "Discharging" ] && [ $P -le 10 ] && ICON=""; echo "$ICON $P%";'
+interval=30
+label=
+
+[brightness]
+command=sh -c 'BRIGHTNESS=$(cat /sys/class/backlight/amdgpu_bl1/actual_brightness); MAX_BRIGHTNESS=$(cat /sys/class/backlight/amdgpu_bl1/max_brightness); PERCENT=$((BRIGHTNESS * 100 / MAX_BRIGHTNESS)); echo " $PERCENT%";'
+interval=1
+label=
+
+[volume]
+command=pactl get-sink-volume @DEFAULT_SINK@ | awk 'NR==1{print " " $5}'
+interval=1
+label=
