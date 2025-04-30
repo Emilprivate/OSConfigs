@@ -14,11 +14,14 @@ set $mod Mod4
 # Scale display up slightly for main monitor of laptop using x11-xserver-utils
 # old, single‑axis scale (breaks arandr)
 # exec --no-startup-id xrandr --output eDP --scale 0.8
-exec --no-startup-id xrandr --output eDP --scale 0.75x0.75 
+# exec --no-startup-id xrandr --output eDP --scale 0.65x0.65
+
+# Enable touchpad tap to click SNSL0028:00 2C2F:0028 Touchpad
+exec --no-startup-id xinput set-prop "SNSL0028:00 2C2F:0028 Touchpad" "libinput Tapping Enabled" 1
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:monospace 8
+font pango:monospace 10
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -160,11 +163,11 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r restart
+bindsym $mod+Ctrl+r restart
 # comment out default exit dialog
 # bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 # launch rofi power menu (use $HOME, since i3 won’t expand “~”)
-bindsym $mod+Shift+e exec --no-startup-id $HOME/.config/i3/power-menu.sh
+bindsym $mod+Shift+e exec --no-startup-id $HOME/.config/i3/scripts/power-menu.sh
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -180,10 +183,10 @@ mode "resize" {
         bindsym ae resize grow width 10 px or 10 ppt
 
         # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Right resize shrink width 10 px or 10 ppt
         bindsym Down resize grow height 10 px or 10 ppt
         bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
+        bindsym Left resize grow width 10 px or 10 ppt
 
         # back to normal: Enter or Escape or $mod+r
         bindsym Return mode "default"
@@ -233,3 +236,20 @@ exec_always --no-startup-id feh --randomize --bg-scale $HOME/.config/i3/backgrou
 exec --no-startup-id xset s off
 exec --no-startup-id xset -dpms
 exec --no-startup-id xset s noblank
+
+# enable natural scrolling
+exec --no-startup-id xinput set-prop 13 "libinput Natural Scrolling Enabled" 1
+
+# Screenshots
+bindsym Print exec --no-startup-id "maim -s /tmp/screenshot.png && \
+  xclip -selection clipboard -t image/png -i /tmp/screenshot.png && \
+  mv /tmp/screenshot.png ~/Pictures/screenshot-$(date +'%Y%m%d-%H%M%S').png"
+
+# Active window screenshot
+bindsym $mod+Print exec --no-startup-id "maim -i $(xdotool getactivewindow) /tmp/screenshot.png && \
+  xclip -selection clipboard -t image/png -i /tmp/screenshot.png && \
+  mv /tmp/screenshot.png ~/Pictures/window-$(date +'%Y%m%d-%H%M%S').png"
+
+# Screen recording toggle
+bindsym $mod+Shift+r exec --no-startup-id ~/.config/i3/scripts/screencast.sh
+

@@ -61,6 +61,23 @@ cp -r ./vim/.vimrc $HOME/
 cd ~/.vim/plugged/YouCompleteMe
 python3 install.py --all
 
+# Install Tmux
+sudo apt install tmux -y
+
+# Install Tmux Plugin Manager
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
+# Put basic tmux config at the bottom of  ~/.tmux.conf
+# set -g @plugin 'tmux-plugins/tpm'
+# set -g @plugin 'tmux-plugins/tmux-sensible'
+# this line at the bottom: run '~/.tmux/plugins/tpm/tpm'
+echo "set -g @plugin 'tmux-plugins/tpm'" >> ~/.tmux.conf
+echo "set -g @plugin 'tmux-plugins/tmux-sensible'" >> ~/.tmux.conf
+echo "run '~/.tmux/plugins/tpm/tpm'" >> ~/.tmux.conf
+
+# Move files in /home folder into $HOME directory
+cp -r /home/* $HOME/
+
 # Move i3, i3blocks and rofi config files to ~/.config
 mkdir -p $HOME/.config/i3
 mkdir -p $HOME/.config/i3blocks
