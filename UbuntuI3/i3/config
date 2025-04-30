@@ -241,9 +241,7 @@ exec --no-startup-id xset s noblank
 exec --no-startup-id xinput set-prop 13 "libinput Natural Scrolling Enabled" 1
 
 # Screenshots
-bindsym Print exec --no-startup-id "maim -s /tmp/screenshot.png && \
-  xclip -selection clipboard -t image/png -i /tmp/screenshot.png && \
-  mv /tmp/screenshot.png ~/Pictures/screenshot-$(date +'%Y%m%d-%H%M%S').png"
+bindsym Print exec --no-startup-id "maim -s | tee ~/Pictures/screenshot-$(date +'%Y%m%d-%H%M%S').png | xclip -selection clipboard -t image/png"
 
 # Active window screenshot
 bindsym $mod+Print exec --no-startup-id "maim -i $(xdotool getactivewindow) /tmp/screenshot.png && \
