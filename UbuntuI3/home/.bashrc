@@ -138,6 +138,9 @@ alias aaudis='sudo pkill -SIGINT openconnect'
 # Connect to AAU-AILAB
 alias aauailab='ssh -l fa43lz@student.aau.dk ailab-fe01.srv.aau.dk'
 
+# Alias for nvim
+alias v='nvim'
+
 # Fix for xhost error
 xhost +local: >/dev/null
 
