@@ -82,9 +82,8 @@ sudo apt install tlp tlp-rdw -y
 mkdir -p $HOME/Applications
 
 # Install latest nvim
-wget -O $HOME/Applications https://github.com/neovim/neovim/releases/download/v0.11.1/nvim-linux-x86_64.appimage
-chmod +x $HOME/Applications/nvim-linux-x86_64.appimage
-mv $HOME/Applications/nvim-linux-x86_64.appimage $HOME/Applications/nvim
+sudo wget https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.appimage -O /usr/bin/nvim
+sudo chmod +x /usr/bin/nvim
 
 # Move i3, i3blocks and rofi config files to ~/.config
 mkdir -p $HOME/.config/i3

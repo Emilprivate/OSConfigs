@@ -18,7 +18,6 @@ else
     ffmpeg -y -f x11grab -video_size "$RES" -framerate 30 \
         -i "$DISPLAY" -c:v libx264 -preset veryslow -crf 18 \
         -c:a aac -b:a 128k \
-        "$OUTPUT" > /home/emilog/ffmpeg.log 2>&1 &
     echo $! > "$PIDFILE"
 fi
 
