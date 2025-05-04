@@ -1,0 +1,57 @@
+! Black & White Minimal Theme with Red Thin Cursor, No Scrollbar, Sharp Font, Zoomed In
+URxvt*foreground:   #ffffff
+URxvt*background:   #000000
+
+URxvt*cursorColor: 3
+URxvt*cursorColor2: 11
+
+! Linux color
+URxvt*color0: #000000
+URxvt*color1: #aa0000
+URxvt*color2: #00aa00
+URxvt*color3: #aa5500
+URxvt*color4: #0000aa
+URxvt*color5: #aa00aa
+URxvt*color6: #00aaaa
+URxvt*color7: #aaaaaa
+URxvt*color8: #555555
+URxvt*color9: #ff5555
+URxvt*color10: #55ff55
+URxvt*color11: #ffff55
+URxvt*color12: #5555ff
+URxvt*color13: #ff55ff
+URxvt*color14: #55ffff
+URxvt*color15: #ffffff
+
+! Use DejaVu Sans Mono for sharp, clear rendering, zoomed in
+URxvt.font: xft:DejaVu Sans Mono:size=18:antialias=false
+
+! -- Settings --
+
+! Enable thin cursor
+URxvt*cursorUnderline: true
+
+! Disable scrollbar
+URxvt*scrollBar:    false
+
+! Fix Ctrl+Arrow keys for Vim compatibility
+URxvt.keysym.Control-Up:    \033[1;5A
+URxvt.keysym.Control-Down:  \033[1;5B
+URxvt.keysym.Control-Left:  \033[1;5D
+URxvt.keysym.Control-Right: \033[1;5C
+
+! Turn on copy pasting
+urxvt.iso14755: false
+
+! Fix Ctrl+Shift+C/V for copy/paste
+URxvt.keysym.C-S-0x43: eval:selection_to_clipboard
+URxvt.keysym.C-S-0x56: eval:paste_clipboard
+
+! Disable confirmation for pasting
+URxvt.perl-ext-common: default,-confirm-paste
+
+! Enable URL detection
+URxvt.url-launcher: firefox
+
+! Enable mouse support
+URxvt.matcher.button:     C-1

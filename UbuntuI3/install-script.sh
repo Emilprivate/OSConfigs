@@ -68,9 +68,6 @@ sudo apt install tmux -y
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 # Put basic tmux config at the bottom of  ~/.tmux.conf
-# set -g @plugin 'tmux-plugins/tpm'
-# set -g @plugin 'tmux-plugins/tmux-sensible'
-# this line at the bottom: run '~/.tmux/plugins/tpm/tpm'
 echo "set -g @plugin 'tmux-plugins/tpm'" >> ~/.tmux.conf
 echo "set -g @plugin 'tmux-plugins/tmux-sensible'" >> ~/.tmux.conf
 echo "run '~/.tmux/plugins/tpm/tpm'" >> ~/.tmux.conf
@@ -78,11 +75,24 @@ echo "run '~/.tmux/plugins/tpm/tpm'" >> ~/.tmux.conf
 # Move files in /home folder into $HOME directory
 cp -r /home/* $HOME/
 
+# Install TLP
+sudo apt install tlp tlp-rdw -y
+
+# Create Applications folder in home directory
+mkdir -p $HOME/Applications
+
+# Install latest nvim
+wget -O $HOME/Applications https://github.com/neovim/neovim/releases/download/v0.11.1/nvim-linux-x86_64.appimage
+chmod +x $HOME/Applications/nvim-linux-x86_64.appimage
+mv $HOME/Applications/nvim-linux-x86_64.appimage $HOME/Applications/nvim
+
 # Move i3, i3blocks and rofi config files to ~/.config
 mkdir -p $HOME/.config/i3
 mkdir -p $HOME/.config/i3blocks
 mkdir -p $HOME/.config/rofi
+mkdir -p $HOME/.config/nvim
 
-cp -r ./i3/* $HOME/.config/i3/
-cp -r ./i3blocks/* $HOME/.config/i3blocks/
-cp -r ./rofi/* $HOME/.config/rofi/
+cp -r ./config/i3/* $HOME/.config/i3/
+cp -r ./config/i3blocks/* $HOME/.config/i3blocks/
+cp -r ./config/rofi/* $HOME/.config/rofi/
+cp -r ./config/nvim/* $HOME/.config/nvim/

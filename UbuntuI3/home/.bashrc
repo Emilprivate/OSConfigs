@@ -141,3 +141,5 @@ alias aauailab='ssh -l fa43lz@student.aau.dk ailab-fe01.srv.aau.dk'
 # Fix for xhost error
 xhost +local: >/dev/null
 
+# Apply dircolors changes
+eval "$(dircolors -b ~/.dir_colors)"

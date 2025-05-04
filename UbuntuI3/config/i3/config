@@ -13,7 +13,7 @@ set $mod Mod4
 
 # Scale display up slightly for main monitor of laptop using x11-xserver-utils
 # old, single‑axis scale (breaks arandr)
-# exec --no-startup-id xrandr --output eDP --scale 0.8
+exec --no-startup-id xrandr --output eDP --scale 0.7
 # exec --no-startup-id xrandr --output eDP --scale 0.65x0.65
 
 # Enable touchpad tap to click SNSL0028:00 2C2F:0028 Touchpad
