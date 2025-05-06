@@ -133,13 +133,14 @@ aaucon() {
   sudo -v && sudo openconnect --protocol=anyconnect --useragent=AnyConnect --user=fa43lz@student.aau.dk --background SSL-VPN1.AAU.DK
 }
 
+# Disconnect from AAU VPN
 alias aaudis='sudo pkill -SIGINT openconnect'
 
 # Connect to AAU-AILAB
-alias aauailab='ssh -l fa43lz@student.aau.dk ailab-fe01.srv.aau.dk'
+alias aauailab='ssh -l fa43lz@student.aau.dk ailab-fe02.srv.aau.dk'
 
 # Alias for nvim
-alias v='nvim'
+alias vim='nvim'
 
 # Fix for xhost error
 xhost +local: >/dev/null
